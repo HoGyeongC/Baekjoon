@@ -4,7 +4,7 @@ def solution(my_string):
     while i < len(my_string):
         num = 0
         flag = 0
-        while i < len(my_string) and ord(my_string[i]) >= ord('0') and ord(my_string[i]) <= ord('9'):
+        while i < len(my_string) and my_string[i].isdigit() == True:
             num *= 10
             num += int(my_string[i])
             i+=1
