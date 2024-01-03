@@ -1,10 +1,10 @@
 # [level unrated] 두 수의 곱 - 120804 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120804) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120804?language=java) 
 
 ### 성능 요약
 
-메모리: 10.3 MB, 시간: 0.00 ms
+메모리: 75.4 MB, 시간: 0.01 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2023년 11월 6일 22:17:8
+2024년 1월 3일 20:37:33
 
 ### 문제 설명
 
