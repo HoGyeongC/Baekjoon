@@ -15,20 +15,7 @@ class Solution {
                 if(str[i].charAt(0) == '-'){
                     plus = false;
                 }
-                int num = 0;
-                if(plus){
-                    for(int j=0;j<str[i].length();j++){
-                        num *= 10;
-                        num += (int)(str[i].charAt(j) - '0');
-                    }
-                }
-                else{
-                    for(int j=1;j<str[i].length();j++){
-                        num *= 10;
-                        num += (int)(str[i].charAt(j) - '0');
-                    }
-                    num *= -1;
-                }
+                int num = Integer.parseInt(str[i]);
                 answer += num;
                 backup = num;
             }
