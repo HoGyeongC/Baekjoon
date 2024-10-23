@@ -2,17 +2,22 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] nums) {
-        int answer = nums.length / 2;
+        int answer=nums.length / 2;
+        Map<Integer, Integer> hm = new HashMap<>();
         
-        HashSet<Integer> set = new HashSet<>();
-        
-        for(int num : nums){
-            set.add(num);
+        for(int n : nums){
+            if(hm.containsKey(n)){
+                hm.put(n, hm.get(n)+1);
+            }
+            else{
+                hm.put(n, 1);
+            }
         }
         
-        if(set.size() < answer){
-            answer = set.size();
+        if(hm.size() < answer){
+            return hm.size();
         }
+        
         
         return answer;
     }
