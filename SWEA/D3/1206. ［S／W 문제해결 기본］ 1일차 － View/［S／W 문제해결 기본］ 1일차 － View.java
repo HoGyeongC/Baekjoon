@@ -25,8 +25,8 @@
 //System.out.println(var);		       				   // 문자열 1개 출력하는 예제
 //System.out.println(AB);		       				     // long 변수 1개 출력하는 예제
 /////////////////////////////////////////////////////////////////////////////////////////////
-import java.util.Scanner;
-import java.io.FileInputStream;
+import java.util.*;
+import java.io.*;
 
 /*
    사용하는 클래스명이 Solution 이어야 하므로, 가급적 Solution.java 를 사용할 것을 권장합니다.
@@ -48,33 +48,40 @@ class Solution
 		/*
 		   표준입력 System.in 으로부터 스캐너를 만들어 데이터를 읽어옵니다.
 		 */
-		Scanner sc = new Scanner(System.in);
-		//int T;
-		//T=sc.nextInt();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        
+		int T = 10;
 		/*
 		   여러 개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
 		*/
 
-		for(int test_case = 1; test_case <= 10; test_case++){
-			int N = sc.nextInt();
-            int[] building = new int[N];
+		for(int test_case = 1; test_case <= T; test_case++)
+		{
+			int N = Integer.parseInt(br.readLine());
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            List<Integer> h = new ArrayList<>();
+            
+            while(st.hasMoreTokens()){
+            	h.add(Integer.parseInt(st.nextToken()));
+            }
+            
             int result = 0;
-            
-            for(int i=0;i<N;i++){
-            	building[i] = sc.nextInt();
-            }
-            
-            for(int i=2;i<N-2;i++){
-            	int max = 0;
-                for(int j=i-2;j<i+3;j++){
-                	max = Math.max(max, building[j]);
-                }
-                if(building[i] == max){
-                	result += max - Math.max(Math.max(building[i-2], building[i-1]), Math.max(building[i+1], building[i+2]));
-                    //System.out.println(building[i]);
+			for(int i=2;i<N-2;i++){
+            	int left = Math.max(h.get(i-2), h.get(i-1));
+                int right = Math.max(h.get(i+1), h.get(i+2));
+                
+                if(h.get(i) > Math.max(left, right)){
+                	result += h.get(i) - Math.max(left, right);
                 }
             }
-            System.out.println("#" + test_case + " " + result);
+			
+            bw.write("#" + test_case + " " + result + "\n");
 		}
+        
+        
+        br.close();
+        bw.flush();
+        bw.close();
 	}
 }
